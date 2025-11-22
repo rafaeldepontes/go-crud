@@ -21,16 +21,12 @@ type DatabaseInterface interface {
 
 func NewDataBase() (*DatabaseInterface, error) {
 
-	var database DatabaseInterface = &mockDB{} // Need to implement this...
+	var database DatabaseInterface = &mockDB{} // Need to implement this... using a real MySQL or Postgres or whatever...
 	var err error = database.SetUpDatabase()
 	if err != nil {
 		log.Error(err)
 		return nil, err
 	}
 
-	return database, nil
-}
-
-func GetUserLoginDetails(username string) {
-
+	return &database, nil
 }
