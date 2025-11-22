@@ -1,13 +1,9 @@
 package api
 
 import (
-	"database/sql"
 	"encoding/json"
 	"net/http"
 	"time"
-
-	log "github.com/sirupsen/logrus"
-	"rafael.br/simple-crud/internal/repository"
 )
 
 type BalanceParams struct {
@@ -48,14 +44,4 @@ func writeError(w http.ResponseWriter, msg string, code int) {
 	w.WriteHeader(code)
 
 	json.NewEncoder(w).Encode(resp)
-}
-
-func Init() (*sql.DB, error) {
-	db, err := repository.Open()
-	if err != nil {
-		log.Error(err)
-		return nil, err
-	}
-
-	return db, nil
 }

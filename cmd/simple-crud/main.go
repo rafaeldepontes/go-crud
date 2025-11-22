@@ -5,7 +5,6 @@ import (
 
 	"github.com/go-chi/chi"
 	log "github.com/sirupsen/logrus"
-	"rafael.br/simple-crud/api"
 	"rafael.br/simple-crud/internal/handler"
 )
 
@@ -25,15 +24,9 @@ func main() {
 	var r *chi.Mux = chi.NewRouter()
 	handler.Handler(r)
 
-	db, err := api.Init()
-	if err != nil {
-		log.Error(err)
-	}
-	defer db.Close()
-
 	println(banner)
 
-	err = http.ListenAndServe("localhost:8080", r)
+	err := http.ListenAndServe("localhost:8080", r)
 	if err != nil {
 		log.Error(err)
 	}
