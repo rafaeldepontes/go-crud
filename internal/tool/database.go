@@ -20,7 +20,6 @@ type DatabaseInterface interface {
 }
 
 func NewDataBase() (*DatabaseInterface, error) {
-
 	var database DatabaseInterface = &mockDB{} // Need to implement this... using a real MySQL or Postgres or whatever...
 	var err error = database.SetUpDatabase()
 	if err != nil {

@@ -21,7 +21,7 @@ type Error struct {
 	TimeStamp string `json:"timestamp"`
 }
 
-const BrazilianDateFormat = "02-01-2006 15:04:05"
+const BrazilianDateFormat = "02/01/2006 15:04:05"
 
 var (
 	RequestErrorHandler = func(w http.ResponseWriter, err error) {

@@ -1,12 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/go-chi/chi"
-	"rafael.br/simple-crud/internal/handler"
 	log "github.com/sirupsen/logrus"
+	"rafael.br/simple-crud/internal/handler"
 )
 
 const banner = 
@@ -16,6 +15,7 @@ const banner =
    Status  : Starting up
    Version : 1.0.0
    Go      : runtime.GoVersion()
+   Listen : localhost:8080
  ----------------------------------------------------
 `
 
@@ -24,7 +24,7 @@ func main() {
 	var r *chi.Mux = chi.NewRouter()
 	handler.Handler(r)
 
-	fmt.Println(banner)
+	println(banner)
 
 	err := http.ListenAndServe("localhost:8080", r)
 	if err != nil {
