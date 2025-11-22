@@ -5,11 +5,11 @@ import (
 	"net/http"
 )
 
-type CoinBalanceParams struct {
+type BalanceParams struct {
 	Username string `json:"username"`
 }
 
-type CoinBalanceResponse struct {
+type BalanceResponse struct {
 	Code    uint16  `json:"code"`
 	Balance float64 `json:"balance"`
 }
