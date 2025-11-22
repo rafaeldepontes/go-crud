@@ -1,2 +1,3 @@
-# go-crud
+# Go-Crud
+
 Just trying to make a simples CRUD in go after studying the whole documentation for two weeks
