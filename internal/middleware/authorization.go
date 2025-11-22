@@ -6,7 +6,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 	"rafael.br/simple-crud/api"
-	tool "rafael.br/simple-crud/internal/tools"
+	tool "rafael.br/simple-crud/internal/tool"
 )
 
 var UnAuthorizedError = errors.New("Invalid username or token")

@@ -3,6 +3,7 @@ package api
 import (
 	"encoding/json"
 	"net/http"
+	"time"
 )
 
 type BalanceParams struct {
@@ -15,9 +16,12 @@ type BalanceResponse struct {
 }
 
 type Error struct {
-	Code    int    `json:"code"`
-	Message string `json:"message"`
+	Code      int    `json:"code"`
+	Message   string `json:"message"`
+	TimeStamp string `json:"timestamp"`
 }
+
+const BrazilianDateFormat = "02-01-2006 15:04:05"
 
 var (
 	RequestErrorHandler = func(w http.ResponseWriter, err error) {
@@ -29,9 +33,11 @@ var (
 )
 
 func writeError(w http.ResponseWriter, msg string, code int) {
+	var timestamp string = time.Now().Format(BrazilianDateFormat)
 	resp := Error{
-				Code: 401,
+				Code: code,
 				Message: msg,
+				TimeStamp: timestamp,
 			}
 	
 	w.Header().Set("Content-Type", "application/json")
